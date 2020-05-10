@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import Contacts from "./components/contacts";
+
+function Card(props) {
+  return (
+    <div>
+      <h2>{props.name}</h2>
+      <img src={props.img} alt="avatar_img" />
+      <p>{props.phone}</p>
+      <p>{props.email}</p>
+    </div>
+  );
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <div>
+    <h1>My Contacts</h1>
+    <Card {...Contacts.Beyonce} />
+    <Card {...Contacts.JackBauer} />
+    <Card {...Contacts.ChuckNoris} />
+  </div>,
+  document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
